@@ -1,4 +1,4 @@
-name: root
+name: ad
 channels:
 - r
 - conda-forge
