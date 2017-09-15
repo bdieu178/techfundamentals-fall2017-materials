@@ -5,7 +5,8 @@ data/*
 #Python
 *checkpoint.ipynb
 
-
+.local*
+.ipython*
 private
 
 __pycache__/
