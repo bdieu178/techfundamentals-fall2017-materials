@@ -3,6 +3,7 @@ data/*
 *~
 
 #Python
+*/.ipynb_checkpoints/*
 *checkpoint.ipynb
 
 .local*
@@ -66,3 +67,5 @@ coverage.xml
 # Mac OS X
 .DS_Store
 drafts
+classes/01-overview/.ipynb_checkpoints/azureml-intro-checkpoint.ipynb
+classes/01-overview/.ipynb_checkpoints/local-intro-checkpoint.ipynb
