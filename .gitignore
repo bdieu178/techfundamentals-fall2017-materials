@@ -5,6 +5,7 @@ data/*
 #Python
 */.ipynb_checkpoints/*
 *checkpoint.ipynb
+*config.yaml
 
 .local*
 .ipython*
