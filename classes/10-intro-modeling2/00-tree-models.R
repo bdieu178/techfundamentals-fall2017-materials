@@ -5,7 +5,6 @@ library("rpart.plot")
 
 #set working directory to current directory. 
 setwd("~/githubdesktop/0_class/techfundamentals-fall2017-materials/classes/10-intro-modeling2")
-
 #Load the Titanic Dataset
 train <- read.csv("../input/train.csv")
 test  <- read.csv("../input/test.csv")
@@ -88,6 +87,10 @@ my_tree1 <- rpart(Survived ~ Age + Sex, data = train_new, method = "class", cont
 summary(my_tree1)
 prp(my_tree1, type = 4, extra = 100)
 
+my_tree1 <- rpart(Survived ~ Age + Sex, data = train_new, method = "class", control=rpart.control(cp=0.000001))
+summary(my_tree1)
+prp(my_tree1, type = 4, extra = 100)
+
 # Create a new model `my_tree`
 my_tree2 <- rpart(Survived ~ Age + Sex + Pclass  + family_size, data = train_new, method = "class", control=rpart.control(cp=0.001))
 summary(my_tree2)
@@ -102,35 +105,3 @@ train_new$Survived_log <- ifelse(predict(logmodel, train_new, type="response")>0
 #Predict for Test
 test_new$Survived_log <- ifelse(predict(logmodel, test_new, type="response")>0.5,1,0)
 
-
-#Prediction is continuous, so this changes to 1 if >0.5 and 0 otherwise.
-test$Survived <- ifelse(predict(model, test, type="response")>0.5,1,0)
-
-install.packages("e1071")
-library("e1071")
-X<-train_new[,c('Age', 'Sex')]
-y<-train_new['Survived']
-
-SVMmod <- svm(X,y) 
-table(X)
-
-
-
-#Run Once
-install.packages("caret")
-install.packages("corrplot")
-library("caret")
-library("corrplot")
-
-
-# 10-fold cross validation with 3 repeats
-trainControl <- trainControl(method="repeatedcv", number=10, repeats=3)
-metric <- "Accuracy"
-
-names(getModelInfo())
-library(pROC)
-
-outcomeName <-train_new
-predictorNames
-
-names(getModelInfo())
