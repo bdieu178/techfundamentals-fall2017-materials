@@ -10,7 +10,7 @@ train <- read.csv("../input/train.csv")
 test  <- read.csv("../input/test.csv")
 test$Survived <- 0
 
-### CLEANING DATA ###
+### CLEANING DATA   ###
 #Here we are combining the training and test data with rowbind. 
 combi <- rbind(train, test)
 combi$Name <- as.character(combi$Name)
